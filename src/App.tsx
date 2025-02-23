@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter } from "react-router-dom";
+import { base_path } from "./environment";
+import ScrollToTop from "./components/Global/ScrollToTop";
+import Routes from "./routes";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./style/css/feather.css";
+import "./index.scss";
+import "./style/icon/boxicons/boxicons/css/boxicons.min.css";
+import "./style/icon/weather/weathericons.css";
+import "./style/icon/typicons/typicons.css";
+import "../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css";
+import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+import "./style/icon/ionic/ionicons.css";
+import "./style/icon/tabler-icons/webfont/tabler-icons.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <BrowserRouter basename={base_path}>
+      <ScrollToTop>
+        <Routes />
+      </ScrollToTop>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
